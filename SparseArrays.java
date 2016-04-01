@@ -7,25 +7,25 @@ import java.util.regex.*;
 public class Solution {
 
     public static void main(String[] args) {
-    	Scanner scan = new Scanner(System.in);
-    	
-    	int N = scan.nextInt();
-    	String[] strArr = new String[N];
-    	for (int i = 0; i < N; i++) {
-    		strArr[i] = scan.next();
-    	}
-    	
-    	int Q = scan.nextInt();
-    	for (int i = 0; i < Q; i++) {
-    		String queryStr = scan.next();
-    		int count = 0;
-    		for (int j = 0; j < strArr.length; j++) {
-    			if (strArr[j].equals(queryStr)) {
-    				count++;
-    			}
-    		}
-    		System.out.println(count);
-    	}
-    	scan.close();
+        Scanner scan = new Scanner(System.in);
+
+        int N = scan.nextInt();
+        Map<String, Integer> map = new HashMap<>();
+        for (int i = 0; i < N; i++) {
+            String input = scan.next();
+            Integer count = map.get(input);
+            if (null == count) {
+                map.put(input, 1);
+            } else {
+                map.put(input, count + 1);
+            }
+        }
+
+        int Q = scan.nextInt();
+        for (int i = 0; i < Q; i++) {
+            Integer count = map.get(scan.next());
+            System.out.println(null == count ? 0 : count);
+        }
+        scan.close();
     }
 }
