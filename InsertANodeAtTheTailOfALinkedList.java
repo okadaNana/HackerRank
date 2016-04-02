@@ -1,19 +1,19 @@
 Node Insert(Node head,int data) {
     Node newNode = new Node();
     newNode.data = data;
-    
     if (head == null) {
-        head = newNode;
+        return newNode;
     } else {
-        Node currNode = head;
-        Node preNode = null;
-        while (currNode != null) {
-            preNode = currNode;
-            currNode = currNode.next;
+        if (head.next == null) {
+            head.next = newNode;
+            return head;
+        } else {
+            Node currNode = head;
+            while (currNode.next != null) {
+                currNode = currNode.next;
+            }
+            currNode.next = newNode;
+            return head;
         }
-        
-        preNode.next = newNode;
     }
-    
-    return head;
 }
