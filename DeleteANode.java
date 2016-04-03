@@ -1,24 +1,12 @@
 Node Delete(Node head, int position) {
-   if (head == null) {
-		return head;
-	} else if (head.next == null) {
-		head = null;
-		return head;
-	} else {
-		if (position == 0) {
-			head = head.next;
-			return head;
-		} else {
-			Node preNode = null;
-			Node currNode = head;
-			
-			for (int i = 0; i < position; i++) {
-				preNode = currNode;
-				currNode = currNode.next;
-			}			
-			preNode.next = currNode.next;
-			
-			return head;
-		}
-	}
+    if (position == 0) {
+        return head.next;
+    } else {
+        Node iterator = head;
+        for (int i = 1; i < position; i++) {
+            iterator = iterator.next;
+        }
+        iterator.next = iterator.next.next;
+        return head;
+    }
 }
