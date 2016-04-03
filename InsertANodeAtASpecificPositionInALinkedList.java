@@ -1,29 +1,23 @@
 Node InsertNth(Node head, int data, int position) {
-    Node newNode = new Node();
-    newNode.data = data;
+	Node newNode = new Node();
+	newNode.data = data;
 
     if (head == null) {
-        head = newNode;
+    	return newNode;
+    } else if (position == 0) {
+    	newNode.next = head;
+    	return newNode;
     } else {
-        if (position == 0) {
-            newNode.next = head;
-            head = newNode;
-        } else {
-            Node currNode = head;
-            Node preNode = head;
-            int i = 0;
-
-            while (currNode != null) {
-                preNode = currNode;
-                currNode = currNode.next;
-                i++;
-                if (position == i) {
-                    preNode.next = newNode;
-                    newNode.next = currNode;
-                }
-            }
-        }
+    	int idx = 0;
+    	Node currNode = head;
+    	while (currNode != null) {
+    		idx++;
+    		if (idx == position) {
+    			newNode.next = currNode.next;
+    			currNode.next = newNode;
+    		}
+    		currNode = currNode.next;
+    	}
+    	return head;
     }
-
-    return head;
 }
