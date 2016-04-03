@@ -4,7 +4,7 @@ Node InsertNth(Node head, int data, int position) {
 
     if (position == 0) {
         newNode.next = head;
-    return newNode;
+        return newNode;
     } else {
         Node targetNode = head;
         for (int i = 1; i < position; i++) {
