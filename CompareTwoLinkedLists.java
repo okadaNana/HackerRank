@@ -3,9 +3,7 @@ int CompareLists(Node headA, Node headB) {
         return 1;
     } else if (headA == null || headB == null) {
         return 0;
-    }
-
-    if (headA.data == headB.data) {
+    } else if (headA.data == headB.data) {
         return CompareLists(headA.next, headB.next);
     } else {
         return 0;
