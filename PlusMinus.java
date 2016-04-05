@@ -7,29 +7,27 @@ import java.util.regex.*;
 public class Solution {
 
     public static void main(String[] args) {
-        int positive = 0;
-        int negtive = 0;
-        int zero = 0;
-        
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
-        int arr[] = new int[n];
-        for(int arr_i=0; arr_i < n; arr_i++){
-            int element = in.nextInt();
-            if (element > 0) {
-               positive++;
-            } else if (element == 0) {
-               zero++; 
-            } else {
-               negtive++; 
-            }
+
+        int positiveCount = 0;
+        int negtiveCount = 0;
+        int zeroCount = 0;
+        for(int i = 0; i < n; i++){
+            int input = in.nextInt();
             
-            arr[arr_i] = element;
+            if (input > 0) {
+                positiveCount++;
+            } else if (input == 0) {
+                zeroCount++;
+            } else {
+                negtiveCount++;
+            }
         }
         in.close();
         
-        System.out.printf("%.6f\n", positive * 1.0 / n);
-        System.out.printf("%.6f\n", negtive * 1.0 / n);
-        System.out.printf("%.6f\n", zero * 1.0 / n);
+        System.out.printf("%.6f\n", positiveCount * 1.0 / n);
+        System.out.printf("%.6f\n", negtiveCount * 1.0 / n);
+        System.out.printf("%.6f\n", zeroCount * 1.0 / n);
     }
 }
