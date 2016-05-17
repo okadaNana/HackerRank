@@ -6,14 +6,6 @@ import java.util.regex.*;
 
 public class Solution {
 
-    import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
-
-public class Solution {
-
     static class Node {
         Character data;
         Node[] next;
@@ -105,6 +97,4 @@ public class Solution {
         }
         scan.close();
     }
-}
-
 }
